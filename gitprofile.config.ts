@@ -68,7 +68,7 @@ const CONFIG = {
       'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', // Empty fileUrl will hide the `Download Resume` button.
   },
   skills: [
-    'PHP',
+    'Python',
     'Laravel',
     'JavaScript',
     'React.js',
@@ -85,11 +85,11 @@ const CONFIG = {
   ],
   experiences: [
     {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'September 2021',
-      to: 'Present',
-      companyLink: 'https://example.com',
+      company: 'TRUELight Energy',
+      position: 'Machine Learning Engineering Intern',
+      from: 'September 2024',
+      to: 'May 2025',
+      companyLink: 'https://truelightenergy.com',
     },
     {
       company: 'Company Name',
@@ -109,16 +109,16 @@ const CONFIG = {
   ],
   educations: [
     {
-      institution: 'Institution Name',
-      degree: 'Degree',
-      from: '2015',
-      to: '2019',
+      institution: 'Worcester Polytechnic Institute',
+      degree: 'Master of Science - Data Science',
+      from: 'August 2023',
+      to: 'May 2025',
     },
     {
-      institution: 'Institution Name',
-      degree: 'Degree',
-      from: '2012',
-      to: '2014',
+      institution: 'Anna University',
+      degree: 'Bachelor of Engineering - Mechanical Engineering',
+      from: 'August 2017 ',
+      to: 'June 2021',
     },
   ],
   publications: [
