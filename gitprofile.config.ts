@@ -80,6 +80,20 @@ const CONFIG = {
   'Deep Learning',
   'RAG Applications',
 ],
+educations: [
+    {
+      institution: 'Worcester Polytechnic Institute',
+      degree: 'Master of Science - Data Science',
+      from: 'August 2023',
+      to: 'May 2025',
+    },
+    {
+      institution: 'Anna University',
+      degree: 'Bachelor of Engineering - Mechanical Engineering',
+      from: 'August 2017 ',
+      to: 'June 2021',
+    },
+  ],
   experiences: [
     {
       company: 'TRUELight Energy',
@@ -102,20 +116,6 @@ const CONFIG = {
       body: 'Lorem ipsum dolor sit amet',
       year: 'March 2022',
       link: 'https://example.com',
-    },
-  ],
-  educations: [
-    {
-      institution: 'Worcester Polytechnic Institute',
-      degree: 'Master of Science - Data Science',
-      from: 'August 2023',
-      to: 'May 2025',
-    },
-    {
-      institution: 'Anna University',
-      degree: 'Bachelor of Engineering - Mechanical Engineering',
-      from: 'August 2017 ',
-      to: 'June 2021',
     },
   ],
   publications: [
