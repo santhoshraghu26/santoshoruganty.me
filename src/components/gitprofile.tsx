@@ -48,53 +48,16 @@ const GitProfile = ({ config }: { config: Config }) => {
   const [githubProjects, setGithubProjects] = useState<GithubProject[]>([]);
 
   const getGithubProjects = useCallback(
-    async (publicRepoCount: number): Promise<GithubProject[]> => {
-      if (sanitizedConfig.projects.github.mode === 'automatic') {
-        if (publicRepoCount === 0) {
-          return [];
-        }
+    async (): Promise<GithubProject[]> => {
+      const query = `user:santhoshraghu+fork:false`;
+      const url = `https://api.github.com/search/repositories?q=${query}&sort=stars&per_page=8&type=Repositories`;
 
-        const excludeRepo =
-          sanitizedConfig.projects.github.automatic.exclude.projects
-            .map((project) => `+-repo:${project}`)
-            .join('');
-
-        const query = `user:${sanitizedConfig.github.username}+fork:${!sanitizedConfig.projects.github.automatic.exclude.forks}${excludeRepo}`;
-        const url = `https://api.github.com/search/repositories?q=${query}&sort=${sanitizedConfig.projects.github.automatic.sortBy}&per_page=${sanitizedConfig.projects.github.automatic.limit}&type=Repositories`;
-
-        const repoResponse = await axios.get(url, {
-          headers: { 'Content-Type': 'application/vnd.github.v3+json' },
-        });
-        const repoData = repoResponse.data;
-
-        return repoData.items;
-      } else {
-        if (sanitizedConfig.projects.github.manual.projects.length === 0) {
-          return [];
-        }
-        const repos = sanitizedConfig.projects.github.manual.projects
-          .map((project) => `+repo:${project}`)
-          .join('');
-
-        const url = `https://api.github.com/search/repositories?q=${repos}+fork:true&type=Repositories`;
-
-        const repoResponse = await axios.get(url, {
-          headers: { 'Content-Type': 'application/vnd.github.v3+json' },
-        });
-        const repoData = repoResponse.data;
-
-        return repoData.items;
-      }
+      const repoResponse = await axios.get(url, {
+        headers: { 'Content-Type': 'application/vnd.github.v3+json' },
+      });
+      return repoResponse.data.items;
     },
-    [
-      sanitizedConfig.github.username,
-      sanitizedConfig.projects.github.mode,
-      sanitizedConfig.projects.github.manual.projects,
-      sanitizedConfig.projects.github.automatic.sortBy,
-      sanitizedConfig.projects.github.automatic.limit,
-      sanitizedConfig.projects.github.automatic.exclude.forks,
-      sanitizedConfig.projects.github.automatic.exclude.projects,
-    ],
+    [],
   );
 
   const loadData = useCallback(async () => {
@@ -114,21 +77,13 @@ const GitProfile = ({ config }: { config: Config }) => {
         company: data.company || '',
       });
 
-      if (!sanitizedConfig.projects.github.display) {
-        return;
-      }
-
-      setGithubProjects(await getGithubProjects(data.public_repos));
+      setGithubProjects(await getGithubProjects());
     } catch (error) {
       handleError(error as AxiosError | Error);
     } finally {
       setLoading(false);
     }
-  }, [
-    sanitizedConfig.github.username,
-    sanitizedConfig.projects.github.display,
-    getGithubProjects,
-  ]);
+  }, [sanitizedConfig.github.username, getGithubProjects]);
 
   useEffect(() => {
     if (Object.keys(sanitizedConfig).length === 0) {
@@ -147,7 +102,6 @@ const GitProfile = ({ config }: { config: Config }) => {
 
   const handleError = (error: AxiosError | Error): void => {
     console.error('Error:', error);
-
     if (error instanceof AxiosError) {
       try {
         const reset = formatDistance(
@@ -155,7 +109,6 @@ const GitProfile = ({ config }: { config: Config }) => {
           new Date(),
           { addSuffix: true },
         );
-
         if (typeof error.response?.status === 'number') {
           switch (error.response.status) {
             case 403:
@@ -171,7 +124,7 @@ const GitProfile = ({ config }: { config: Config }) => {
         } else {
           setError(GENERIC_ERROR);
         }
-      } catch (innerError) {
+      } catch {
         setError(GENERIC_ERROR);
       }
     } else {
@@ -224,62 +177,31 @@ const GitProfile = ({ config }: { config: Config }) => {
                         skills={sanitizedConfig.skills}
                       />
                     )}
-                    {sanitizedConfig.experiences.length !== 0 && (
-                      <ExperienceCard
-                        loading={loading}
-                        experiences={sanitizedConfig.experiences}
-                      />
-                    )}
-                    {sanitizedConfig.certifications.length !== 0 && (
-                      <CertificationCard
-                        loading={loading}
-                        certifications={sanitizedConfig.certifications}
-                      />
-                    )}
                     {sanitizedConfig.educations.length !== 0 && (
                       <EducationCard
                         loading={loading}
                         educations={sanitizedConfig.educations}
                       />
                     )}
+                    {sanitizedConfig.experiences.length !== 0 && (
+                      <ExperienceCard
+                        loading={loading}
+                        experiences={sanitizedConfig.experiences}
+                      />
+                    )}
                   </div>
                 </div>
+
                 <div className="lg:col-span-2 col-span-1">
                   <div className="grid grid-cols-1 gap-6">
-                    {sanitizedConfig.projects.github.display && (
-                      <GithubProjectCard
-                        header={sanitizedConfig.projects.github.header}
-                        limit={sanitizedConfig.projects.github.automatic.limit}
-                        githubProjects={githubProjects}
-                        loading={loading}
-                        username={sanitizedConfig.github.username}
-                        googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
-                      />
-                    )}
-                    {sanitizedConfig.publications.length !== 0 && (
-                      <PublicationCard
-                        loading={loading}
-                        publications={sanitizedConfig.publications}
-                      />
-                    )}
-                    {sanitizedConfig.projects.external.projects.length !==
-                      0 && (
-                      <ExternalProjectCard
-                        loading={loading}
-                        header={sanitizedConfig.projects.external.header}
-                        externalProjects={
-                          sanitizedConfig.projects.external.projects
-                        }
-                        googleAnalyticId={sanitizedConfig.googleAnalytics.id}
-                      />
-                    )}
-                    {sanitizedConfig.blog.display && (
-                      <BlogCard
-                        loading={loading}
-                        googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
-                        blog={sanitizedConfig.blog}
-                      />
-                    )}
+                    <GithubProjectCard
+                      header="Projects"
+                      limit={8}
+                      githubProjects={githubProjects}
+                      loading={loading}
+                      username="santhoshraghu"
+                      googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
+                    />
                   </div>
                 </div>
               </div>
