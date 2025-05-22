@@ -1,10 +1,10 @@
-import { AiOutlineControl } from 'react-icons/ai';
-import { SanitizedThemeConfig } from '../../interfaces/sanitized-config';
-import { LOCAL_STORAGE_KEY_NAME } from '../../constants';
 import { skeleton } from '../../utils';
-import { MouseEvent } from 'react';
-
+import { SanitizedThemeConfig } from '../../interfaces/sanitized-config';
 /**
+import { MouseEvent } from 'react';
+import { AiOutlineControl } from 'react-icons/ai';
+import { LOCAL_STORAGE_KEY_NAME } from '../../constants';
+
  * Renders a theme changer component.
  *
  * @param {Object} props - The props object.
