@@ -185,22 +185,16 @@ educations: [
     id: '',
     snippetVersion: 6,
   },
+
   themeConfig: {
-    defaultTheme: 'black',
-
-    // Hides the switch in the navbar
-    // Useful if you want to support a single color mode
-    disableSwitch: true,
-
-    // Should use the prefers-color-scheme media-query,
-    // using user system preferences, instead of the hardcoded defaultTheme
-    respectPrefersColorScheme: false,
-
-    // Display the ring in Profile picture
-    displayAvatarRing: true,
-
-    // Available themes. To remove any theme, exclude from here.
-    themes: [
+  defaultTheme: 'black', // 👈 Default is 'black'
+  disableSwitch: false,  // 👈 Show theme toggle in UI
+  respectPrefersColorScheme: true, // 👈 Enable auto-detection based on system preference
+  displayAvatarRing: true,
+  themes: ['black', 'light'], // 👈 List only black and light
+}
+    
+  themes: [
       'light',
       'dark',
       'cupcake',
