@@ -25,18 +25,14 @@ const ThemeChanger = ({
   loading: boolean;
   themeConfig: SanitizedThemeConfig;
 }) => {
-  const changeTheme = (
-    e: MouseEvent<HTMLAnchorElement>,
-    selectedTheme: string,
-  ) => {
-    e.preventDefault();
+  const toggleTheme = () => {
+    const newTheme = theme === 'black' ? 'light' : 'black';
 
-    document.querySelector('html')?.setAttribute('data-theme', selectedTheme);
-
-    typeof window !== 'undefined' &&
-      localStorage.setItem(LOCAL_STORAGE_KEY_NAME, selectedTheme);
-
-    setTheme(selectedTheme);
+    document.querySelector('html')?.setAttribute('data-theme', newTheme);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', newTheme);
+    }
+    setTheme(newTheme);
   };
 
   return (
@@ -58,8 +54,8 @@ const ThemeChanger = ({
             {loading
               ? skeleton({ widthCls: 'w-16', heightCls: 'h-5' })
               : theme === themeConfig.defaultTheme
-                ? 'Default'
-                : theme}
+              ? 'Default'
+              : theme}
           </span>
         </div>
         <div className="flex-0">
@@ -70,47 +66,16 @@ const ThemeChanger = ({
               className: 'mr-6',
             })
           ) : (
-            <div title="Change Theme" className="dropdown dropdown-end">
-              <div
-                tabIndex={0}
-                className="btn btn-ghost m-1 normal-case opacity-50 text-base-content"
-              >
-                <AiOutlineControl className="inline-block w-5 h-5 stroke-current md:mr-2" />
-                <span className="hidden md:inline">Change Theme</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 1792 1792"
-                  className="inline-block w-4 h-4 ml-1 fill-current"
-                >
-                  <path d="M1395 736q0 13-10 23l-466 466q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l393 393 393-393q10-10 23-10t23 10l50 50q10 10 10 23z" />
-                </svg>
-              </div>
-              <div
-                tabIndex={0}
-                className="mt-16 overflow-y-auto shadow-2xl top-px dropdown-content max-h-96 w-52 rounded-lg bg-base-200 text-base-content z-10"
-              >
-                <ul className="p-4 menu compact">
-                  {[
-                    themeConfig.defaultTheme,
-                    ...themeConfig.themes.filter(
-                      (item) => item !== themeConfig.defaultTheme,
-                    ),
-                  ].map((item, index) => (
-                    <li key={index}>
-                      {}
-                      <a
-                        onClick={(e) => changeTheme(e, item)}
-                        className={`${theme === item ? 'active' : ''}`}
-                      >
-                        <span className="opacity-60 capitalize">
-                          {item === themeConfig.defaultTheme ? 'Default' : item}
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <label className="cursor-pointer label">
+              <span className="label-text mr-2">Light</span>
+              <input
+                type="checkbox"
+                className="toggle toggle-primary"
+                checked={theme === 'black'}
+                onChange={toggleTheme}
+              />
+              <span className="label-text ml-2">Dark</span>
+            </label>
           )}
         </div>
       </div>
