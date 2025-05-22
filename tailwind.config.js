@@ -9,6 +9,7 @@ export default {
   plugins: [require('daisyui')],
   daisyui: {
     logs: false,
+    darkTheme: 'black', // 👈 tells DaisyUI which theme is considered 'dark'
     themes: [
       ...CONFIG.themeConfig.themes,
       { procyon: CONFIG.themeConfig.customTheme },
