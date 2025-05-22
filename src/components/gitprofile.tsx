@@ -224,24 +224,25 @@ const GitProfile = ({ config }: { config: Config }) => {
                         skills={sanitizedConfig.skills}
                       />
                     )}
-                    {sanitizedConfig.experiences.length !== 0 && (
-                      <ExperienceCard
-                        loading={loading}
-                        experiences={sanitizedConfig.experiences}
-                      />
-                    )}
-                    {sanitizedConfig.certifications.length !== 0 && (
-                      <CertificationCard
-                        loading={loading}
-                        certifications={sanitizedConfig.certifications}
-                      />
-                    )}
                     {sanitizedConfig.educations.length !== 0 && (
                       <EducationCard
                         loading={loading}
                         educations={sanitizedConfig.educations}
                       />
                     )}
+                    {sanitizedConfig.experiences.length !== 0 && (
+                      <ExperienceCard
+                        loading={loading}
+                        experiences={sanitizedConfig.experiences}
+                      />
+                    )}
+                    {sanitizedConfig.awards?.length !== 0 && (
+                    <CertificationCard
+                      loading={loading}
+                      certifications={sanitizedConfig.awards} // Reusing the same component
+                      title="Awards" // Optional: If your CertificationCard accepts a custom title prop
+                    />
+                  )}
                   </div>
                 </div>
                 <div className="lg:col-span-2 col-span-1">
