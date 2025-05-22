@@ -200,7 +200,7 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                 icon={<AiFillGithub />}
                 title="GitHub:"
                 value={github.username}
-                ink={`https://github.com/${github.username}`}
+                link={`https://github.com/${github.username}`}
               />
               {social?.researchGate && (
                 <ListItem
