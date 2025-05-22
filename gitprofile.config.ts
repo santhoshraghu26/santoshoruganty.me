@@ -187,13 +187,14 @@ educations: [
   },
 
   themeConfig: {
-  defaultTheme: 'black', // 👈 Default is 'black'
-  disableSwitch: false,  // 👈 Show theme toggle in UI
-  respectPrefersColorScheme: true, // 👈 Enable auto-detection based on system preference
+  defaultTheme: 'black',
+  disableSwitch: false,
+  respectPrefersColorScheme: true,
   displayAvatarRing: true,
-  themes: ['black', 'light'], // 👈 List only black and light
-}
-    
+  themes: ['black', 'light'],  // ✅ this line is inside the correct block
+},
+
+/**
   themes: [
       'light',
       'dark',
@@ -228,7 +229,7 @@ educations: [
       'nord',
       'sunset',
       'procyon',
-    ],
+    ], */
 
     // Custom theme, applied to `procyon` theme
     customTheme: {
