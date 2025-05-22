@@ -17,9 +17,9 @@ const CONFIG = {
       mode: 'automatic', // Mode can be: 'automatic' or 'manual'
       automatic: {
         sortBy: 'stars', // Sort projects by 'stars' or 'updated'
-        limit: 8, // How many projects to display.
+        limit: 5, // How many projects to display.
         exclude: {
-          forks: false, // Forked projects will not be displayed if set to true.
+          forks: true, // Forked projects will not be displayed if set to true.
           projects: [], // These projects will not be displayed. example: ['arifszn/my-project1', 'arifszn/my-project2']
         },
       },
@@ -185,14 +185,23 @@ educations: [
     id: '',
     snippetVersion: 6,
   },
-
+  
   themeConfig: {
-  defaultTheme: 'black',
-  disableSwitch: false,
-  respectPrefersColorScheme: true,
-  displayAvatarRing: true,
-  themes: ['black', 'light'],  // ✅ this line is inside the correct block
-},
+    defaultTheme: 'black',
+    disableSwitch: false,
+    respectPrefersColorScheme: true,
+    displayAvatarRing: true,
+    themes: ['black', 'light'],
+    customTheme: {
+      primary: '#fc055b',
+      secondary: '#219aaf',
+      accent: '#e8d03a',
+      neutral: '#2A2730',
+      'base-100': '#E3E3ED',
+      '--rounded-box': '3rem',
+      '--rounded-btn': '3rem',
+    },
+  },
 
 /**
   themes: [
@@ -231,24 +240,10 @@ educations: [
       'procyon',
     ], */
 
-    // Custom theme, applied to `procyon` theme
-    customTheme: {
-      primary: '#fc055b',
-      secondary: '#219aaf',
-      accent: '#e8d03a',
-      neutral: '#2A2730',
-      'base-100': '#E3E3ED',
-      '--rounded-box': '3rem',
-      '--rounded-btn': '3rem',
-    },
-  },
-
   // Optional Footer. Supports plain text or HTML.
   footer: `Made with <a 
-      class="text-primary" href="https://github.com/arifszn/gitprofile"
-      target="_blank"
-      rel="noreferrer"
-    >GitProfile</a>`,
+    class="text-primary" href="https://github.com/arifszn/gitprofile"
+    target="_blank" rel="noreferrer">GitProfile</a>`,
 
   enablePWA: true,
 };
