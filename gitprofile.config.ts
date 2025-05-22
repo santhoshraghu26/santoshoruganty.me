@@ -84,12 +84,14 @@ educations: [
     {
       institution: 'Worcester Polytechnic Institute',
       degree: 'Master of Science - Data Science',
+      GPA : '4.0',
       from: 'August 2023',
       to: 'May 2025',
     },
     {
       institution: 'Anna University',
       degree: 'Bachelor of Engineering - Mechanical Engineering',
+      GPA:'3.45',
       from: 'August 2017 ',
       to: 'June 2021',
     },
@@ -103,19 +105,50 @@ educations: [
       companyLink: 'https://truelightenergy.com',
     },
     {
-      company: 'Company Name',
-      position: 'Position',
-      from: 'July 2019',
-      to: 'August 2021',
-      companyLink: 'https://example.com',
+      company: 'Worcester Polytechnic Institute',
+      position: 'Research Assistant',
+      from: 'May 2024',
+      to: 'May 2025',
+      companyLink: 'https://www.wpi.edu/',
+    },
+    
+    {
+      company: 'Worcester Polytechnic Institute',
+      position: 'Teaching Assistant - Artificial Intelligence & Database Management Systems',
+      from: 'August 2024',
+      to: 'May 2025',
+      companyLink: 'https://www.wpi.edu/',
+    },
+    
+    {
+      company: 'XtraSensing Ltd',
+      position: 'Machine Learning Researcher Researcher',
+      from: 'August 2024',
+      to: 'December 2024',
+      companyLink: 'https://www.xtrasensing.com/',
+    },
+    
+    {
+      company: 'Tecra Systems',
+      position: 'Artificial Intelligence Intern',
+      from: 'June 2024',
+      to: 'September 2024',
+      companyLink: 'https://www.tecra.com/',
+    },
+    {
+      company: 'Accenture',
+      position: 'Application Development Associate',
+      from: 'December 2021',
+      to: 'August 2023',
+      companyLink: 'https://www.accenture.com/',
     },
   ],
-  certifications: [
+  Awards: [
     {
-      name: 'Lorem ipsum',
-      body: 'Lorem ipsum dolor sit amet',
-      year: 'March 2022',
-      link: 'https://example.com',
+      name: 'Most Valuable Player Award',
+      body: 'Graduate Qualifying Project - XtraSensing Ltd',
+      year: 'December 2024',
+      link: 'https://www.xtrasensing.com/',
     },
   ],
   publications: [
