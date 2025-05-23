@@ -19,17 +19,17 @@ const ListItem = ({
       style={{ left: '-4.5px' }}
     ></div>
     <div className="my-0.5 text-xs">{time}</div>
-    <div className="flex items-center gap-2">
+    <h3 className="font-semibold">{degree}</h3>
+    <div className="mb-4 font-normal flex items-center gap-2">
       {logo && (
         <img
           src={logo}
-          alt="College Logo"
+          alt="Institution Logo"
           className="w-5 h-5 object-contain"
         />
       )}
-      <h3 className="font-semibold">{degree}</h3>
+      <span>{institution}</span>
     </div>
-    <div className="mb-4 font-normal">{institution}</div>
   </li>
 );
 
