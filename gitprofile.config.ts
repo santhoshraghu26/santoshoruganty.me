@@ -101,7 +101,7 @@ educations: [
     GPA: '3.45', 
     from: 'August 2017', 
     to: 'June 2021', 
-    logo: '/assets/logos/Anna.svg' // <-- add this path
+    logo: '/assets/logos/Anna.png' // <-- add this path
   }, 
 ],
   experiences: [
