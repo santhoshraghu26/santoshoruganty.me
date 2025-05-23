@@ -21,21 +21,27 @@ const ListItem = ({
       style={{ left: '-4.5px' }}
     ></div>
 
-    <div className="flex items-center gap-2 font-medium mb-1">
+    {/* Institution Row */}
+    <div className="flex items-center gap-3 text-base font-semibold mb-1">
       {logo && (
         <img
           src={logo}
           alt="Institution Logo"
-          className="w-5 h-5 object-contain"
+          className="w-6 h-6 object-contain" // ⬅️ increase size
         />
       )}
       <span>{institution}</span>
     </div>
 
-    <div className="font-semibold">{degree}</div>
-    <div className="text-xs mt-0.5">{time}</div>
+    {/* Degree */}
+    <div className="text-base font-medium">{degree}</div>
+
+    {/* Duration */}
+    <div className="text-sm text-opacity-80">{time}</div>
+
+    {/* GPA */}
     {gpa && (
-      <div className="text-xs mt-0.5 font-normal">GPA: {gpa}</div>
+      <div className="text-sm text-opacity-70 mt-1">GPA: {gpa}</div>
     )}
   </li>
 );
