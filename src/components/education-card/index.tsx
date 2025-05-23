@@ -3,26 +3,25 @@ import { SanitizedEducation } from '../../interfaces/sanitized-config';
 import { skeleton } from '../../utils';
 
 const ListItem = ({
-  time,
-  degree,
   institution,
-  logo,
+  degree,
+  time,
   gpa,
+  logo,
 }: {
-  time: React.ReactNode;
-  degree?: React.ReactNode;
   institution?: React.ReactNode;
+  degree?: React.ReactNode;
+  time: React.ReactNode;
+  gpa?: React.ReactNode;
   logo?: string;
-  gpa?: string;
 }) => (
-  <li className="mb-5 ml-4">
+  <li className="mb-6 ml-4">
     <div
       className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
       style={{ left: '-4.5px' }}
     ></div>
-    <div className="my-0.5 text-xs">{time}</div>
-    <h3 className="font-semibold">{degree}</h3>
-    <div className="mb-1 font-normal flex items-center gap-2">
+
+    <div className="flex items-center gap-2 font-medium mb-1">
       {logo && (
         <img
           src={logo}
@@ -32,10 +31,11 @@ const ListItem = ({
       )}
       <span>{institution}</span>
     </div>
+
+    <div className="font-semibold">{degree}</div>
+    <div className="text-xs mt-0.5">{time}</div>
     {gpa && (
-      <div className="text-xs text-base-content opacity-60 ml-6">
-        GPA: {gpa}
-      </div>
+      <div className="text-xs mt-0.5 font-normal">GPA: {gpa}</div>
     )}
   </li>
 );
@@ -53,20 +53,13 @@ const EducationCard = ({
       array.push(
         <ListItem
           key={index}
-          time={skeleton({
-            widthCls: 'w-5/12',
-            heightCls: 'h-4',
-          })}
-          degree={skeleton({
-            widthCls: 'w-6/12',
-            heightCls: 'h-4',
-            className: 'my-1.5',
-          })}
-          institution={skeleton({ widthCls: 'w-6/12', heightCls: 'h-3' })}
-        />,
+          time={skeleton({ widthCls: 'w-5/12', heightCls: 'h-4' })}
+          degree={skeleton({ widthCls: 'w-6/12', heightCls: 'h-4' })}
+          institution={skeleton({ widthCls: 'w-6/12', heightCls: 'h-4' })}
+          gpa={skeleton({ widthCls: 'w-3/12', heightCls: 'h-4' })}
+        />
       );
     }
-
     return array;
   };
 
@@ -75,31 +68,25 @@ const EducationCard = ({
       <div className="card-body">
         <div className="mx-3">
           <h5 className="card-title">
-            {loading ? (
-              skeleton({ widthCls: 'w-32', heightCls: 'h-8' })
-            ) : (
-              <span className="text-base-content opacity-70">Education</span>
-            )}
+            {loading
+              ? skeleton({ widthCls: 'w-32', heightCls: 'h-8' })
+              : <span className="text-base-content opacity-70">Education</span>}
           </h5>
         </div>
         <div className="text-base-content text-opacity-60">
           <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
-            {loading ? (
-              renderSkeleton()
-            ) : (
-              <>
-                {educations.map((item, index) => (
+            {loading
+              ? renderSkeleton()
+              : educations.map((item, index) => (
                   <ListItem
                     key={index}
-                    time={`${item.from} - ${item.to}`}
-                    degree={item.degree}
                     institution={item.institution}
-                    logo={item.logo}
+                    degree={item.degree}
+                    time={`${item.from} – ${item.to}`}
                     gpa={item.GPA}
+                    logo={item.logo}
                   />
                 ))}
-              </>
-            )}
           </ol>
         </div>
       </div>
