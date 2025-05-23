@@ -86,22 +86,24 @@ const CONFIG = {
   'Deep Learning',
   'RAG Applications',
 ],
-educations: [
-    {
-      institution: 'Worcester Polytechnic Institute',
-      degree: 'Master of Science - Data Science',
-      GPA : '4.0',
-      from: 'August 2023',
-      to: 'May 2025',
-    },
-    {
-      institution: 'Anna University',
-      degree: 'Bachelor of Engineering - Mechanical Engineering',
-      GPA:'3.45',
-      from: 'August 2017 ',
-      to: 'June 2021',
-    },
-  ],
+educations: [ 
+  { 
+    institution: 'Worcester Polytechnic Institute', 
+    degree: 'Master of Science - Data Science', 
+    GPA: '4.0', 
+    from: 'August 2023', 
+    to: 'May 2025', 
+    logo: '/assets/logos/WPI.png' // <-- add this path
+  }, 
+  { 
+    institution: 'Anna University', 
+    degree: 'Bachelor of Engineering - Mechanical Engineering', 
+    GPA: '3.45', 
+    from: 'August 2017', 
+    to: 'June 2021', 
+    logo: '/assets/logos/Anna.svg' // <-- add this path
+  }, 
+],
   experiences: [
     {
       company: 'TRUELight Energy',
