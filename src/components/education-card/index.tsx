@@ -7,11 +7,13 @@ const ListItem = ({
   degree,
   institution,
   logo,
+  gpa,
 }: {
   time: React.ReactNode;
   degree?: React.ReactNode;
   institution?: React.ReactNode;
   logo?: string;
+  gpa?: string;
 }) => (
   <li className="mb-5 ml-4">
     <div
@@ -20,7 +22,7 @@ const ListItem = ({
     ></div>
     <div className="my-0.5 text-xs">{time}</div>
     <h3 className="font-semibold">{degree}</h3>
-    <div className="mb-4 font-normal flex items-center gap-2">
+    <div className="mb-1 font-normal flex items-center gap-2">
       {logo && (
         <img
           src={logo}
@@ -30,6 +32,11 @@ const ListItem = ({
       )}
       <span>{institution}</span>
     </div>
+    {gpa && (
+      <div className="text-xs text-base-content opacity-60 ml-6">
+        GPA: {gpa}
+      </div>
+    )}
   </li>
 );
 
@@ -82,13 +89,14 @@ const EducationCard = ({
             ) : (
               <>
                 {educations.map((item, index) => (
-                <ListItem
-                  key={index}
-                  time={`${item.from} - ${item.to}`}
-                  degree={item.degree}
-                  institution={item.institution}
-                  logo={item.logo}
-                />
+                  <ListItem
+                    key={index}
+                    time={`${item.from} - ${item.to}`}
+                    degree={item.degree}
+                    institution={item.institution}
+                    logo={item.logo}
+                    gpa={item.GPA}
+                  />
                 ))}
               </>
             )}
