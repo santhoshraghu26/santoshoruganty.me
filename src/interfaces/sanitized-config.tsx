@@ -89,7 +89,8 @@ export interface SanitizedEducation {
   degree?: string;
   from: string;
   to: string;
-  logo?: string;
+  GPA?: string; // <-- ✅ Add this line
+  logo?: string; // optional, since you're already using it
 }
 
 export interface SanitizedPublication {
