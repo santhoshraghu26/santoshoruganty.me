@@ -239,8 +239,8 @@ const GitProfile = ({ config }: { config: Config }) => {
                     {sanitizedConfig.awards?.length !== 0 && (
                     <CertificationCard
                       loading={loading}
-                      certifications={sanitizedConfig.awards}
-                      title="Awards"
+                      certifications={sanitizedConfig.awards || []}
+                      title="Awards" // Optional, if your component supports it
                     />
                   )}
                   </div>
