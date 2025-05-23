@@ -31,9 +31,11 @@ const ListItem = ({
 const CertificationCard = ({
   certifications,
   loading,
+  title = 'Certification', // Default value is 'Certification'
 }: {
   certifications: SanitizedCertification[];
   loading: boolean;
+  title?: string; // Optional prop for dynamic title
 }) => {
   const renderSkeleton = () => {
     const array = [];
@@ -67,7 +69,7 @@ const CertificationCard = ({
               skeleton({ widthCls: 'w-32', heightCls: 'h-8' })
             ) : (
               <span className="text-base-content opacity-70">
-                Certification
+                {title}
               </span>
             )}
           </h5>
