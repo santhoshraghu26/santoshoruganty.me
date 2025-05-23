@@ -93,7 +93,7 @@ educations: [
     GPA: '4.0', 
     from: 'August 2023', 
     to: 'May 2025', 
-    logo: '/assets/logos/WPI.png' // <-- add this path
+    logo: '/assets/logos/wpi.png' // <-- add this path
   }, 
   { 
     institution: 'Anna University', 
