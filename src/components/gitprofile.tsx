@@ -239,8 +239,8 @@ const GitProfile = ({ config }: { config: Config }) => {
                     {sanitizedConfig.awards?.length !== 0 && (
                     <CertificationCard
                       loading={loading}
-                      certifications={sanitizedConfig.awards} // Reusing the same component
-                      title="Awards" // Optional: If your CertificationCard accepts a custom title prop
+                      certifications={sanitizedConfig.awards}
+                      title="Awards"
                     />
                   )}
                   </div>
