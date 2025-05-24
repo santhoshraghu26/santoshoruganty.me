@@ -104,7 +104,7 @@ educations: [
     logo: '/assets/logos/Anna.png' // <-- add this path
   }, 
 ],
-  experiences: [
+experiences: [
     {
       company: 'TRUELight Energy',
       position: 'Machine Learning Engineering Intern',
@@ -151,16 +151,16 @@ educations: [
       companyLink: 'https://www.accenture.com/',
     },
   ],
-  Awards: [
-    {
-      name: 'Most Valuable Player Award',
-      body: 'Graduate Qualifying Project - XtraSensing Ltd',
-      year: 'December 2024',
-      link: 'https://www.xtrasensing.com/',
-      logo: '/assets/logos/mvp.jpg', // 👈 Add the path to the image here
-    },
-  ],
-  publications: [
+awards: [
+  {
+    name: 'Most Valuable Player Award',
+    body: 'Graduate Qualifying Project - XtraSensing Ltd',
+    year: 'December 2024',
+    link: 'https://www.xtrasensing.com/',
+    logo: '/assets/logos/mvp.jpg', // ✅ Ensure this image exists in public/assets/logos/
+  },
+],
+publications: [
     {
       title: 'Publication Title',
       conferenceName: '',
