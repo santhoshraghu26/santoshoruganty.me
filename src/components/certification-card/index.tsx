@@ -7,11 +7,13 @@ const ListItem = ({
   name,
   body,
   link,
+  logo,
 }: {
   year?: React.ReactNode;
   name?: React.ReactNode;
   body?: React.ReactNode;
   link?: string;
+  logo?: string;
 }) => (
   <li className="mb-5 ml-4">
     <div
@@ -19,7 +21,14 @@ const ListItem = ({
       style={{ left: '-4.5px' }}
     ></div>
     <div className="my-0.5 text-xs">{year}</div>
-    <div className="font-medium">
+    <div className="font-medium flex items-center gap-2">
+      {logo && (
+        <img
+          src={logo}
+          alt="Award Logo"
+          className="w-6 h-6 object-contain" // ⬅️ You can increase size if needed
+        />
+      )}
       <a href={link} target="_blank" rel="noreferrer">
         {name}
       </a>
