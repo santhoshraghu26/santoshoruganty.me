@@ -104,6 +104,8 @@ educations: [
     logo: '/assets/logos/Anna.png' // <-- add this path
   }, 
 ],
+experiences: [],
+/**
 experiences: [
     {
       company: 'TRUELight Energy',
@@ -151,13 +153,14 @@ experiences: [
       companyLink: 'https://www.accenture.com/',
     },
   ],
-awards: [
+  */
+Awards: [
   {
     name: 'Most Valuable Player Award',
     body: 'Graduate Qualifying Project - XtraSensing Ltd',
     year: 'December 2024',
     link: 'https://www.xtrasensing.com/',
-    logo: '/assets/logos/mvp.jpg', // ✅ Ensure this image exists in public/assets/logos/
+    logo: '/assets/logos/mvp.jpg',
   },
 ],
 publications: [
