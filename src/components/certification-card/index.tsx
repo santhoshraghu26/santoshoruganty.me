@@ -15,27 +15,36 @@ const ListItem = ({
   link?: string;
   logo?: string;
 }) => (
-  <li className="mb-5 ml-4">
+  <li className="mb-8 ml-4">
     <div
       className="absolute w-2 h-2 bg-base-300 rounded-full border border-base-300 mt-1.5"
       style={{ left: '-4.5px' }}
     ></div>
+
     <div className="my-0.5 text-xs">{year}</div>
-    <div className="font-medium flex items-center gap-2">
-      {logo && (
-        <img
-          src={logo}
-          alt="Award Logo"
-          className="w-6 h-6 object-contain" // ⬅️ You can increase size if needed
-        />
-      )}
-      <a href={link} target="_blank" rel="noreferrer">
+
+    <div className="font-medium mb-1">
+      <a href={link} target="_blank" rel="noreferrer" className="text-lg">
         {name}
       </a>
     </div>
-    <h3 className="mb-4 font-normal">{body}</h3>
+
+    <h3 className="mb-3 font-normal">{body}</h3>
+
+    {logo && (
+      <div className="mt-2">
+        <a href={link} target="_blank" rel="noreferrer">
+          <img
+            src={logo}
+            alt="Award Image"
+            className="w-full max-w-xs rounded shadow-lg"
+          />
+        </a>
+      </div>
+    )}
   </li>
 );
+
 
 
 const CertificationCard = ({
