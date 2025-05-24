@@ -45,38 +45,24 @@ const ListItem = ({
   </li>
 );
 
-
-
 const CertificationCard = ({
   certifications,
   loading,
-  title = 'Certification', // Default value is 'Certification'
+  title = 'Certification',
 }: {
   certifications: SanitizedCertification[];
   loading: boolean;
-  title?: string; // Optional prop for dynamic title
+  title?: string;
 }) => {
   const renderSkeleton = () => {
-    const array = [];
-    for (let index = 0; index < 2; index++) {
-      array.push(
-        <ListItem
-          key={index}
-          year={skeleton({
-            widthCls: 'w-5/12',
-            heightCls: 'h-4',
-          })}
-          name={skeleton({
-            widthCls: 'w-6/12',
-            heightCls: 'h-4',
-            className: 'my-1.5',
-          })}
-          body={skeleton({ widthCls: 'w-6/12', heightCls: 'h-3' })}
-        />,
-      );
-    }
-
-    return array;
+    return Array.from({ length: 2 }, (_, index) => (
+      <ListItem
+        key={index}
+        year={skeleton({ widthCls: 'w-5/12', heightCls: 'h-4' })}
+        name={skeleton({ widthCls: 'w-6/12', heightCls: 'h-4', className: 'my-1.5' })}
+        body={skeleton({ widthCls: 'w-6/12', heightCls: 'h-3' })}
+      />
+    ));
   };
 
   return (
@@ -87,31 +73,34 @@ const CertificationCard = ({
             {loading ? (
               skeleton({ widthCls: 'w-32', heightCls: 'h-8' })
             ) : (
-              <span className="text-base-content opacity-70">
-                {title}
-              </span>
+              <span className="text-base-content opacity-70">{title}</span>
             )}
           </h5>
         </div>
+
         <div className="text-base-content text-opacity-60">
-          <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
-            {loading ? (
-              renderSkeleton()
-            ) : (
-              <>
-                {certifications.map((cert, index) => (
+          {loading ? (
+            <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
+              {renderSkeleton()}
+            </ol>
+          ) : certifications.length === 0 ? (
+            <p className="text-sm text-center text-base-content text-opacity-60 my-6">
+              No {title.toLowerCase()} to show.
+            </p>
+          ) : (
+            <ol className="relative border-l border-base-300 border-opacity-30 my-2 mx-4">
+              {certifications.map((cert, index) => (
                 <ListItem
                   key={index}
                   year={cert.year}
                   name={cert.name}
                   body={cert.body}
                   link={cert.link}
-                  logo={cert.logo} // 👈 Here
+                  logo={cert.logo}
                 />
               ))}
-              </>
-            )}
-          </ol>
+            </ol>
+          )}
         </div>
       </div>
     </div>
