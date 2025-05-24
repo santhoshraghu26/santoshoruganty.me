@@ -151,12 +151,13 @@ educations: [
       companyLink: 'https://www.accenture.com/',
     },
   ],
-  Awards: [
+  awards: [
     {
       name: 'Most Valuable Player Award',
       body: 'Graduate Qualifying Project - XtraSensing Ltd',
       year: 'December 2024',
       link: 'https://www.xtrasensing.com/',
+      logo: '/assets/logos/mvp.png', // 👈 Add the path to the image here
     },
   ],
   publications: [
