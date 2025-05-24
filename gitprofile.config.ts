@@ -160,7 +160,7 @@ Awards: [
     body: 'Graduate Qualifying Project - XtraSensing Ltd',
     year: 'December 2024',
     link: 'https://www.xtrasensing.com/',
-    logo: '/assets/logos/mvp.jpg',
+    logo: '/assets/logos/mvp.png',
   },
 ],
 publications: [
