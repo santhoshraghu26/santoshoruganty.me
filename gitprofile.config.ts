@@ -154,7 +154,7 @@ experiences: [
     },
   ],
   */
-Awards: [
+awards: [
   {
     name: 'Most Valuable Player Award',
     body: 'Graduate Qualifying Project - XtraSensing Ltd',
