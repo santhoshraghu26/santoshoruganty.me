@@ -151,7 +151,7 @@ educations: [
       companyLink: 'https://www.accenture.com/',
     },
   ],
-  awards: [
+  Awards: [
     {
       name: 'Most Valuable Player Award',
       body: 'Graduate Qualifying Project - XtraSensing Ltd',
