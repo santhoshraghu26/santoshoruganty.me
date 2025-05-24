@@ -157,7 +157,7 @@ educations: [
       body: 'Graduate Qualifying Project - XtraSensing Ltd',
       year: 'December 2024',
       link: 'https://www.xtrasensing.com/',
-      logo: '/assets/logos/mvp.png', // 👈 Add the path to the image here
+      logo: '/assets/logos/mvp.jpg', // 👈 Add the path to the image here
     },
   ],
   publications: [
