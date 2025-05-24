@@ -37,6 +37,7 @@ const ListItem = ({
   </li>
 );
 
+
 const CertificationCard = ({
   certifications,
   loading,
