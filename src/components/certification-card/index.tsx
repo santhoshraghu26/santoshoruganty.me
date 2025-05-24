@@ -90,15 +90,16 @@ const CertificationCard = ({
               renderSkeleton()
             ) : (
               <>
-                {certifications.map((certification, index) => (
-                  <ListItem
-                    key={index}
-                    year={certification.year}
-                    name={certification.name}
-                    body={certification.body}
-                    link={certification.link}
-                  />
-                ))}
+                {certifications.map((cert, index) => (
+                <ListItem
+                  key={index}
+                  year={cert.year}
+                  name={cert.name}
+                  body={cert.body}
+                  link={cert.link}
+                  logo={cert.logo} // 👈 Here
+                />
+              ))}
               </>
             )}
           </ol>
