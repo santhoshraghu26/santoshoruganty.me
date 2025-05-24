@@ -21,13 +21,13 @@ const ListItem = ({
       style={{ left: '-4.5px' }}
     ></div>
 
-    {/* Institution Row */}
+    {/* Institution */}
     <div className="flex items-center gap-3 text-base font-semibold mb-1">
       {logo && (
         <img
           src={logo}
           alt="Institution Logo"
-          className="w-6 h-6 object-contain" // ⬅️ increase size
+          className="w-7 h-7 object-contain" // Increased size
         />
       )}
       <span>{institution}</span>
@@ -41,7 +41,11 @@ const ListItem = ({
 
     {/* GPA */}
     {gpa && (
-      <div className="text-sm text-opacity-70 mt-1">GPA: {gpa}</div>
+      <div className="text-sm mt-1">
+        <span className="font-semibold px-2 py-1 bg-accent bg-opacity-20 rounded">
+          GPA: {gpa}
+        </span>
+      </div>
     )}
   </li>
 );
