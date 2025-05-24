@@ -236,11 +236,14 @@ const GitProfile = ({ config }: { config: Config }) => {
                         experiences={sanitizedConfig.experiences}
                       />
                     )}
-                    {sanitizedConfig.awards?.length !== 0 && (
+                    {(sanitizedConfig.certifications.length !== 0 || sanitizedConfig.awards?.length !== 0) && (
                     <CertificationCard
                       loading={loading}
-                      certifications={sanitizedConfig.awards || []}
-                      title="Awards" // Optional, if your component supports it
+                      certifications={[
+                        ...(sanitizedConfig.certifications || []),
+                        ...(sanitizedConfig.awards || []),
+                      ]}
+                      title="Awards"
                     />
                   )}
                   </div>
