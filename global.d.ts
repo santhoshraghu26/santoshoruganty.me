@@ -214,13 +214,26 @@ interface Resume {
   fileUrl?: string;
 }
 
+// interface Experience {
+//   company?: string;
+//   position?: string;
+//   from: string;
+//   to: string;
+//   companyLink?: string;
+// }
 interface Experience {
   company?: string;
   position?: string;
   from: string;
   to: string;
   companyLink?: string;
+
+  logo?: string;
+  link?: string;
+  location?: string;
+  description?: string[];
 }
+
 
 interface Certification {
   body?: string;
