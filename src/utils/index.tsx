@@ -88,14 +88,33 @@ export const getSanitizedConfig = (
         fileUrl: config?.resume?.fileUrl || '',
       },
       skills: config?.skills || [],
+      // experiences:
+      //   config?.experiences?.filter(
+      //     (experience) =>
+      //       experience.company ||
+      //       experience.position ||
+      //       experience.from ||
+      //       experience.to,
+      //   ) || [],
       experiences:
-        config?.experiences?.filter(
-          (experience) =>
-            experience.company ||
-            experience.position ||
-            experience.from ||
-            experience.to,
-        ) || [],
+        config?.experiences
+          ?.filter(
+            (experience) =>
+              experience.company ||
+              experience.position ||
+              experience.from ||
+              experience.to,
+          )
+          .map((experience) => ({
+            company: experience.company,
+            position: experience.position,
+            from: experience.from,
+            to: experience.to,
+            companyLink: experience.companyLink,
+            logo: experience.logo,           // ✅ NEW
+            link: experience.link,           // ✅ NEW
+            location: experience.location,   // ✅ NEW
+          })) || [],
       certifications:
         config?.certifications?.filter(
           (certification) =>
