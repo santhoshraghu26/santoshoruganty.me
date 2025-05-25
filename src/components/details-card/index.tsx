@@ -376,37 +376,218 @@
 //   );
 // };
 
+
+
+
 // export default DetailsCard;
+// import { Fragment } from 'react';
+// import {
+//   AiFillGithub,
+//   AiFillInstagram,
+//   AiFillMediumSquare,
+// } from 'react-icons/ai';
+// import { CgDribbble } from 'react-icons/cg';
+// import {
+//   FaBehanceSquare,
+//   FaBuilding,
+//   FaDev,
+//   FaFacebook,
+//   FaGlobe,
+//   FaLinkedin,
+//   FaMastodon,
+//   FaReddit,
+//   FaSkype,
+//   FaStackOverflow,
+//   FaTelegram,
+//   FaYoutube,
+// } from 'react-icons/fa';
+// import { FaSquareThreads } from 'react-icons/fa6';
+// import { MdLocationOn } from 'react-icons/md';
+// import { RiMailFill, RiPhoneFill } from 'react-icons/ri';
+// import { SiResearchgate, SiX, SiUdemy } from 'react-icons/si';
+// import { Profile } from '../../interfaces/profile';
+// import {
+//   SanitizedGithub,
+//   SanitizedSocial,
+// } from '../../interfaces/sanitized-config';
+// import { skeleton } from '../../utils';
+
+// type Props = {
+//   profile: Profile | null;
+//   loading: boolean;
+//   social: SanitizedSocial;
+//   github: SanitizedGithub;
+// };
+
+// const isCompanyMention = (company: string): boolean => {
+//   return company.startsWith('@') && !company.includes(' ');
+// };
+
+// const companyLink = (company: string): string => {
+//   return `https://github.com/${company.substring(1)}`;
+// };
+
+// const getFormattedMastodonValue = (
+//   mastodonValue: string,
+//   isLink: boolean,
+// ): string => {
+//   const [username, server] = mastodonValue.split('@');
+//   return isLink ? `https://${server}/@${username}` : `${username}@${server}`;
+// };
+
+// const ListItem: React.FC<{
+//   icon: React.ReactNode;
+//   title: React.ReactNode;
+//   value: React.ReactNode;
+//   link?: string;
+//   skeleton?: boolean;
+// }> = ({ icon, title, value, link, skeleton = false }) => {
+//   return (
+//     <div className="flex justify-start py-2 px-1 items-center">
+//       <div className="flex-grow font-medium gap-2 flex items-center my-1">
+//         {icon} {title}
+//       </div>
+//       <div
+//         className={`${
+//           skeleton ? 'flex-grow' : ''
+//         } text-sm font-normal text-right mr-2 ml-3 ${link ? 'truncate' : ''}`}
+//         style={{ wordBreak: 'break-word' }}
+//       >
+//         {link ? (
+//           <a
+//             href={link}
+//             target="_blank"
+//             rel="noreferrer"
+//             className="text-primary font-medium hover:text-accent transition-colors duration-200"
+//           >
+//             {value}
+//           </a>
+//         ) : (
+//           value
+//         )}
+//       </div>
+//     </div>
+//   );
+// };
+
+// const OrganizationItem: React.FC<{
+//   icon: React.ReactNode;
+//   title: React.ReactNode;
+//   value: React.ReactNode | string;
+//   link?: string;
+//   skeleton?: boolean;
+// }> = ({ icon, title, value, link, skeleton = false }) => {
+//   const renderValue = () => {
+//     if (typeof value === 'string') {
+//       return value.split(' ').map((company) => {
+//         company = company.trim();
+//         if (!company) return null;
+
+//         if (isCompanyMention(company)) {
+//           return (
+//             <a
+//               href={companyLink(company)}
+//               target="_blank"
+//               rel="noreferrer"
+//               key={company}
+//               className="text-primary font-medium hover:text-accent transition-colors duration-200"
+//             >
+//               {company}
+//             </a>
+//           );
+//         } else {
+//           return <span key={company}>{company}</span>;
+//         }
+//       });
+//     }
+//     return value;
+//   };
+
+//   return (
+//     <div className="flex justify-start py-2 px-1 items-center">
+//       <div className="flex-grow font-medium gap-2 flex items-center my-1">
+//         {icon} {title}
+//       </div>
+//       <div
+//         className={`${
+//           skeleton ? 'flex-grow' : ''
+//         } text-sm font-normal text-right mr-2 ml-3 space-x-2 ${link ? 'truncate' : ''}`}
+//         style={{ wordBreak: 'break-word' }}
+//       >
+//         {renderValue()}
+//       </div>
+//     </div>
+//   );
+// };
+
+// const DetailsCard = ({ profile, loading, social, github }: Props) => {
+//   const renderSkeleton = () => {
+//     return Array.from({ length: 4 }).map((_, i) => (
+//       <ListItem
+//         key={i}
+//         skeleton
+//         icon={skeleton({ widthCls: 'w-4', heightCls: 'h-4' })}
+//         title={skeleton({ widthCls: 'w-24', heightCls: 'h-4' })}
+//         value={skeleton({ widthCls: 'w-full', heightCls: 'h-4' })}
+//       />
+//     ));
+//   };
+
+//   return (
+//     <div className="card shadow-lg compact bg-base-100">
+//       <div className="card-body">
+//         <div className="text-base-content text-opacity-60">
+//           {loading || !profile ? (
+//             renderSkeleton()
+//           ) : (
+//             <Fragment>
+//               {profile.location && (
+//                 <ListItem icon={<MdLocationOn />} title="Based in:" value={profile.location} />
+//               )}
+//               {profile.company && (
+//                 <OrganizationItem
+//                   icon={<FaBuilding />}
+//                   title="Organization:"
+//                   value={profile.company}
+//                   link={
+//                     isCompanyMention(profile.company.trim())
+//                       ? companyLink(profile.company.trim())
+//                       : undefined
+//                   }
+//                 />
+//               )}
+//               <ListItem icon={<AiFillGithub />} title="GitHub:" value={github.displayName || github.username} link={`https://github.com/${github.username}`} />
+//               {social?.linkedin && <ListItem icon={<FaLinkedin />} title="LinkedIn:" value={social.linkedin} link={`https://www.linkedin.com/in/${social.linkedin}`} />}
+//               {social?.email && <ListItem icon={<RiMailFill />} title="Email:" value={social.email} link={`mailto:${social.email}`} />}
+//               {social?.phone && <ListItem icon={<RiPhoneFill />} title="Phone:" value={social.phone} link={`tel:${social.phone}`} />}
+//               {social?.website && (
+//                 <ListItem
+//                   icon={<FaGlobe />}
+//                   title="Website:"
+//                   value={social.website.replace(/^https?:\/\//, '')}
+//                   link={social.website.startsWith('http') ? social.website : `http://${social.website}`}
+//                 />
+//               )}
+//               {/* Add other platforms below as needed */}
+//             </Fragment>
+//           )}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default DetailsCard;
+
+
+
 import { Fragment } from 'react';
-import {
-  AiFillGithub,
-  AiFillInstagram,
-  AiFillMediumSquare,
-} from 'react-icons/ai';
-import { CgDribbble } from 'react-icons/cg';
-import {
-  FaBehanceSquare,
-  FaBuilding,
-  FaDev,
-  FaFacebook,
-  FaGlobe,
-  FaLinkedin,
-  FaMastodon,
-  FaReddit,
-  FaSkype,
-  FaStackOverflow,
-  FaTelegram,
-  FaYoutube,
-} from 'react-icons/fa';
-import { FaSquareThreads } from 'react-icons/fa6';
+import { AiFillGithub } from 'react-icons/ai';
+import { FaBuilding, FaGlobe, FaLinkedin } from 'react-icons/fa';
 import { MdLocationOn } from 'react-icons/md';
 import { RiMailFill, RiPhoneFill } from 'react-icons/ri';
-import { SiResearchgate, SiX, SiUdemy } from 'react-icons/si';
 import { Profile } from '../../interfaces/profile';
-import {
-  SanitizedGithub,
-  SanitizedSocial,
-} from '../../interfaces/sanitized-config';
+import { SanitizedGithub, SanitizedSocial } from '../../interfaces/sanitized-config';
 import { skeleton } from '../../utils';
 
 type Props = {
@@ -422,14 +603,6 @@ const isCompanyMention = (company: string): boolean => {
 
 const companyLink = (company: string): string => {
   return `https://github.com/${company.substring(1)}`;
-};
-
-const getFormattedMastodonValue = (
-  mastodonValue: string,
-  isLink: boolean,
-): string => {
-  const [username, server] = mastodonValue.split('@');
-  return isLink ? `https://${server}/@${username}` : `${username}@${server}`;
 };
 
 const ListItem: React.FC<{
@@ -553,19 +726,48 @@ const DetailsCard = ({ profile, loading, social, github }: Props) => {
                   }
                 />
               )}
-              <ListItem icon={<AiFillGithub />} title="GitHub:" value={github.displayName || github.username} link={`https://github.com/${github.username}`} />
-              {social?.linkedin && <ListItem icon={<FaLinkedin />} title="LinkedIn:" value={social.linkedin} link={`https://www.linkedin.com/in/${social.linkedin}`} />}
-              {social?.email && <ListItem icon={<RiMailFill />} title="Email:" value={social.email} link={`mailto:${social.email}`} />}
-              {social?.phone && <ListItem icon={<RiPhoneFill />} title="Phone:" value={social.phone} link={`tel:${social.phone}`} />}
+              <ListItem
+                icon={<AiFillGithub />}
+                title="GitHub:"
+                value={github.displayName || github.username}
+                link={`https://github.com/${github.username}`}
+              />
+              {social?.linkedin && (
+                <ListItem
+                  icon={<FaLinkedin />}
+                  title="LinkedIn:"
+                  value={social.linkedin}
+                  link={`https://www.linkedin.com/in/${social.linkedin}`}
+                />
+              )}
+              {social?.email && (
+                <ListItem
+                  icon={<RiMailFill />}
+                  title="Email:"
+                  value={social.email}
+                  link={`mailto:${social.email}`}
+                />
+              )}
+              {social?.phone && (
+                <ListItem
+                  icon={<RiPhoneFill />}
+                  title="Phone:"
+                  value={social.phone}
+                  link={`tel:${social.phone}`}
+                />
+              )}
               {social?.website && (
                 <ListItem
                   icon={<FaGlobe />}
                   title="Website:"
                   value={social.website.replace(/^https?:\/\//, '')}
-                  link={social.website.startsWith('http') ? social.website : `http://${social.website}`}
+                  link={
+                    social.website.startsWith('http')
+                      ? social.website
+                      : `http://${social.website}`
+                  }
                 />
               )}
-              {/* Add other platforms below as needed */}
             </Fragment>
           )}
         </div>
