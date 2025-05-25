@@ -228,6 +228,7 @@ interface Certification {
   name?: string;
   year?: string;
   link?: string;
+  logo?: string; // Optional but useful for awards display
 }
 
 interface Education {
@@ -393,6 +394,8 @@ interface Config {
    * Certifications list
    */
   certifications?: Array<Certification>;
+
+  awards?: Array<Certification>;
 
   /**
    * Education list
