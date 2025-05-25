@@ -149,8 +149,8 @@ export interface SanitizedConfig {
   experiences: Array<SanitizedExperience>;
   educations: Array<SanitizedEducation>;
   certifications: Array<SanitizedCertification>;
+  awards: Array<SanitizedCertification>; // ✅ Ensure this is NOT optional if used everywhere
   publications: Array<SanitizedPublication>;
-  awards: Array<SanitizedCertification>;
   googleAnalytics: SanitizedGoogleAnalytics;
   hotjar: SanitizedHotjar;
   blog: SanitizedBlog;
