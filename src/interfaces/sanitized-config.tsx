@@ -150,7 +150,7 @@ export interface SanitizedConfig {
   educations: Array<SanitizedEducation>;
   certifications: Array<SanitizedCertification>;
   publications: Array<SanitizedPublication>;
-  awards?: Array<SanitizedCertification>;  // ✅ ADD THIS LINE
+  awards: Array<SanitizedCertification>;
   googleAnalytics: SanitizedGoogleAnalytics;
   hotjar: SanitizedHotjar;
   blog: SanitizedBlog;
