@@ -72,7 +72,7 @@
 // };
 
 // export default ExperienceCard;
-import React from 'react';
+// import React from 'react';
 import { SanitizedExperience } from '../../interfaces/sanitized-config';
 
 const ExperienceCard = ({
