@@ -1,6 +1,8 @@
 export interface SanitizedGithub {
   username: string;
+  displayName?: string; // 👈 Add this
 }
+
 
 export interface SanitizedGitHubProjects {
   display: boolean;
