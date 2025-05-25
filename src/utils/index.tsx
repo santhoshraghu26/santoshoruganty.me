@@ -3,6 +3,7 @@ import { LOCAL_STORAGE_KEY_NAME } from '../constants';
 import { DEFAULT_CUSTOM_THEME } from '../constants/default-custom-theme';
 import { DEFAULT_THEMES } from '../constants/default-themes';
 import colors from '../data/colors.json';
+import { SanitizedCertification } from './sanitized-config';
 import {
   SanitizedConfig,
   SanitizedHotjar,
@@ -101,7 +102,7 @@ export const getSanitizedConfig = (
         ) || [],
       awards:
         config?.awards?.filter(
-          (award) =>
+          (award: SanitizedCertification) =>
             award.year || award.name || award.body
         ) || [],
       educations:
