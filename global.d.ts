@@ -1,9 +1,8 @@
 interface Github {
-  /**
-   * GitHub org/user name
-   */
   username: string;
+  displayName?: string; // 👈 Add this
 }
+
 
 interface GitHubProjects {
   /**
