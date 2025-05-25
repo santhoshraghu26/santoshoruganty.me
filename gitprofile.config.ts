@@ -105,7 +105,58 @@ educations: [
     logo: '/assets/logos/Anna.png' // <-- add this path
   }, 
 ],
-experiences: [],
+experiences: [
+  {
+    company: 'TrueLight Energy LLC',
+    position: 'Machine Learning Engineering Intern',
+    from: 'September 2024',
+    to: 'May 2025',
+    companyLink: 'https://www.linkedin.com/in/santoshoruganty/details/experience/',
+    logo: '/assets/logos/true.png',
+  },
+  {
+    company: 'Worcester Polytechnic Institute',
+    position: 'Research Assistant',
+    from: 'May 2024',
+    to: 'May 2025',
+    companyLink: 'https://www.linkedin.com/in/santoshoruganty/details/experience/',
+    logo: '/assets/logos/wpii.png',
+  },
+  {
+    company: 'Worcester Polytechnic Institute',
+    position: 'Teaching Assistant - AI & DBMS',
+    from: 'August 2024',
+    to: 'May 2025',
+    companyLink: 'https://www.linkedin.com/in/santoshoruganty/details/experience/',
+    logo: '/assets/logos/wpii.png',
+  },
+  {
+    company: 'XtraSensing Ltd',
+    position: 'Graduate Researcher - GQP',
+    from: 'August 2024',
+    to: 'December 2024',
+    companyLink: 'https://www.linkedin.com/in/santoshoruganty/details/experience/',
+    logo: '/assets/logos/xtra.png',
+  },
+  {
+    company: 'Tecra Systems',
+    position: 'Artificial Intelligence Intern',
+    from: 'June 2024',
+    to: 'September 2024',
+    companyLink: 'https://www.linkedin.com/in/santoshoruganty/details/experience/',
+    logo: '/assets/logos/tecra.png',
+  },
+  {
+    company: 'Accenture',
+    position: 'Application Development Associate',
+    from: 'December 2021',
+    to: 'August 2023',
+    companyLink: 'https://www.linkedin.com/in/santoshoruganty/details/experience/',
+    logo: '/assets/logos/acc.png', // Add this if you have an Accenture logo
+  },
+],
+
+// experiences: [],
 /**
 experiences: [
     {
