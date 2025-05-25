@@ -152,7 +152,7 @@ experiences: [
     from: 'December 2021',
     to: 'August 2023',
     companyLink: 'https://www.linkedin.com/in/santoshoruganty/details/experience/',
-    logo: '/assets/logos/acc.png', // Add this if you have an Accenture logo
+    logo: '/assets/logos/accenture.jpg', // Add this if you have an Accenture logo
   },
 ],
 
