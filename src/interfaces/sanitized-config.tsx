@@ -85,11 +85,8 @@ export interface SanitizedExperience {
   from: string;
   to: string;
   companyLink?: string;
-  logo?: string; // 👈 NEW: path to logo under public/assets/logos
-  link?: string; // 👈 NEW: external link to job/company
-  location?: string; // 👈 OPTIONAL: useful for showing city/state
+  logo?: string; // ✅ Add this line
 }
-
 
 export interface SanitizedCertification {
   body?: string;
