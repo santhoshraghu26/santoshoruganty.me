@@ -71,13 +71,25 @@ export interface SanitizedResume {
   fileUrl?: string;
 }
 
+// export interface SanitizedExperience {
+//   company?: string;
+//   position?: string;
+//   from: string;
+//   to: string;
+//   companyLink?: string;
+// }
+
 export interface SanitizedExperience {
   company?: string;
   position?: string;
   from: string;
   to: string;
   companyLink?: string;
+  logo?: string; // 👈 NEW: path to logo under public/assets/logos
+  link?: string; // 👈 NEW: external link to job/company
+  location?: string; // 👈 OPTIONAL: useful for showing city/state
 }
+
 
 export interface SanitizedCertification {
   body?: string;
